@@ -1,13 +1,17 @@
 package less3;
 
+import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class MyStack<T> {
     private T[] list;
     private int size = 0;
     private final int DEFAULT_CAPACITY = 10;
+    private int capacity = DEFAULT_CAPACITY;
+    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
     public MyStack(int capacity) {
+        this.capacity = capacity;
         if (capacity < 0) {
             throw new IllegalArgumentException("capacity < 0" + capacity);
         }
@@ -27,10 +31,11 @@ public class MyStack<T> {
 
     public void push(T item) {
         if (isFull()) {
-            throw new StackOverflowError();
+            expandCapacity(capacity);
         }
         list[size] = item;
         size++;
+        expandCapacity(capacity);
     }
 
     //    достаем
@@ -59,4 +64,23 @@ public class MyStack<T> {
         list = tempArr;
     }
 
+    private void expandCapacity(int oldCapacity) {
+        if (size > oldCapacity * 0.75) {
+            int newCapacity = list.length + (list.length >> 1);
+            if (newCapacity - list.length < 0) newCapacity = MAX_ARRAY_SIZE;
+            capacity = newCapacity;
+            list = Arrays.copyOf(list, newCapacity);
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[ ");
+        for (int i = 0; i <size; i++) {
+            sb.append(list[i]).append(", ");
+        }
+        sb.setLength(sb.length()-2);
+        sb.append(" ]");
+        return sb.toString();
+    }
 }
