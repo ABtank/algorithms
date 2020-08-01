@@ -1,6 +1,9 @@
 package less4;
 
-public class MyDoLinkedList<T> {
+import java.util.Iterator;
+import java.util.ListIterator;
+
+public class MyDoLinkedList<T> implements Iterable<T>{
 
     private Node first;
     private Node last;
@@ -9,6 +12,62 @@ public class MyDoLinkedList<T> {
     public MyDoLinkedList() {
         this.first = null;
         this.last = null;
+    }
+
+    @Override
+    public ListIterator<T> iterator() {
+        return null;
+    }
+
+    private class ListIter implements ListIterator<T>{
+        Node current = new  Node(null,first);
+
+        @Override
+        public boolean hasNext() {
+            return current.next!=null;
+        }
+
+        @Override
+        public T next() {
+            current = current.next;
+            return current.value;
+        }
+
+        @Override
+        public boolean hasPrevious() {
+            return current.previous!=null;
+        }
+
+        @Override
+        public T previous() {
+            current = current.previous;
+            return current.value;
+        }
+
+        @Override
+        public int nextIndex() {
+            return indexOf(current.next.value);
+        }
+
+        @Override
+        public int previousIndex() {
+            return indexOf(current.previous.value);
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+        @Override
+        public void set(T item) {
+
+        }
+
+        @Override
+        public void add(T item) {
+
+        }
     }
 
     // указатель
