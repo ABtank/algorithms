@@ -5,7 +5,7 @@ public class Main5 {
     public static void main(String[] args) {
         int n=5;
         int m=17;
-        int v = 2;
+        int v = 3;
         System.out.println(fact(n));
         System.out.println(reFact(n));
         System.out.println(numberFibo(m));
@@ -14,6 +14,20 @@ public class Main5 {
         System.out.println("recTriangleNum="+recTriangleNum(m));
         System.out.println("multiply="+ multiply(n,v));
         System.out.println("recMultiply="+ recMultiply(n,v));
+        System.out.println("exponentiation="+ exponentiation(n,v));
+        System.out.println("reExponentiation="+ reExponentiation(n,v));
+    }
+
+    private static long exponentiation (int num, int exp){
+        for (int i = 1; i <exp ; i++) {
+            num*=num;
+        }
+        return num;
+    }
+
+    private static long reExponentiation (int num, int exp){
+        if(exp==0)return num;
+        return num*reExponentiation(num,exp-1);
     }
 
     private static int fact(int n) {

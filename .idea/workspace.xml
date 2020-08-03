@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a11db25-d676-42d6-a97f-1d96b50a0058" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/less5/Main5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/less2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/less2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/less2/MyArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/less2/MyArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/less2/MySortedArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/less2/MySortedArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/less5/Main5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/less5/Main5.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/less5/Main5.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+            <state relative-caret-position="442">
+              <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -75,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/less2/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+            <state relative-caret-position="323">
+              <caret line="49" column="47" lean-forward="true" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,10 +112,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/less5/Main5.java" />
         <option value="$PROJECT_DIR$/src/less2/MySortedArrayList.java" />
         <option value="$PROJECT_DIR$/src/less2/MyArrayList.java" />
         <option value="$PROJECT_DIR$/src/less2/Main.java" />
+        <option value="$PROJECT_DIR$/src/less5/Main5.java" />
       </list>
     </option>
   </component>
@@ -198,7 +194,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main5">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="less2.Main" />
       <module name="algorithms" />
@@ -227,8 +223,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main5" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -311,7 +307,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/less5/Main5.java</url>
-          <line>26</line>
+          <line>40</line>
           <properties class="less5.Main5" method="reFact">
             <option name="EMULATED" value="true" />
           </properties>
@@ -356,13 +352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/less5/Main5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/less2/MySortedArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
@@ -387,11 +376,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/less2/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        <state relative-caret-position="323">
+          <caret line="49" column="47" lean-forward="true" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/less5/Main5.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="29" column="47" lean-forward="true" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
         </state>
       </provider>
     </entry>
