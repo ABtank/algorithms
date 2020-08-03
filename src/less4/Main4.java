@@ -48,5 +48,31 @@ public class Main4 {
         for (String s : myLinkedList) {
             System.out.println(s);
         }
+
+        System.out.println("---stack---");
+        MyLinkedStack<String> stack = new MyLinkedStack<>();
+        System.out.println(stack);
+        stack.push("Katia");
+        stack.push("Petia");
+        stack.push("Maria");
+        stack.push("Bob");
+        System.out.println(stack.peek());
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
+        while (!stack.isEmpty()){
+            System.out.print(stack.pop()+ " ");
+        }
+        System.out.println("\n---queue---");
+        MyLinkedQueue<String> queue = new MyLinkedQueue<>();
+        queue.insert("Katia");
+        queue.insert("Petia");
+        queue.insert("Maria");
+        queue.insert("Bob");
+        System.out.println(queue.peek());
+        System.out.println(queue.remove());
+        System.out.println(queue.peek());
+        while (!queue.isEmpty()){
+            System.out.print(queue.remove()+ " ");
+        }
     }
 }
