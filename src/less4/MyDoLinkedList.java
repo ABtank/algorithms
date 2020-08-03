@@ -1,5 +1,8 @@
 package less4;
 
+import java.util.Iterator;
+import java.util.ListIterator;
+
 public class MyDoLinkedList<T> {
 
     private Node first;
@@ -9,6 +12,100 @@ public class MyDoLinkedList<T> {
     public MyDoLinkedList() {
         this.first = null;
         this.last = null;
+    }
+
+
+    public ListIterator<T> listIterator() {
+        return new ListIter();
+    }
+
+    private class ListIter implements ListIterator<T> {
+        Node nextNode = first;
+        Node prevNode = null;
+        int index = -1;
+        boolean lastOperationIsNext;
+
+
+        @Override
+        public boolean hasNext() {
+            return nextNode != null;
+        }
+
+        @Override
+        public T next() {
+            T temp = nextNode.value;
+            prevNode = nextNode;
+            nextNode = nextNode.next;
+            index++;
+            lastOperationIsNext = true;
+            return temp;
+        }
+
+        @Override
+        public boolean hasPrevious() {
+            return prevNode != null;
+        }
+
+        @Override
+        public T previous() {
+            T temp = prevNode.value;
+            nextNode = prevNode;
+            prevNode = prevNode.previous;
+            index--;
+            lastOperationIsNext = false;
+            return temp;
+        }
+
+        @Override
+        public int nextIndex() {
+            return index + 1;
+        }
+
+        @Override
+        public int previousIndex() {
+            return index;
+        }
+
+        @Override
+        public void remove() {
+//            Удалить элемент на который указывает prevNode
+            if (lastOperationIsNext) {
+                if (!hasNext()) {
+                    deleteLast();
+                    nextNode = null;
+                    prevNode = last;
+                    return;
+                }
+                nextNode.previous = prevNode.previous;
+                if (prevNode.previous != null) {
+                    prevNode.previous.next = nextNode;
+                }
+                prevNode = nextNode.previous;
+            } else {
+//                Удалить элемент на который указывает nextNode
+                if (!hasNext()) {
+                    deleteFirst();
+                    prevNode = null;
+                    nextNode = first;
+                    return;
+                }
+                prevNode.next = nextNode.next;
+                if(nextNode.next !=null){
+                    nextNode.next.previous = prevNode;
+                }
+                nextNode= prevNode.next;
+            }
+        }
+
+        @Override
+        public void set(T t) {
+
+        }
+
+        @Override
+        public void add(T t) {
+
+        }
     }
 
     // указатель
@@ -140,13 +237,13 @@ public class MyDoLinkedList<T> {
         }
         Node current = first;
         //пока следующий элемент не нулл и не равен искомому обьекту
-        while (current!= null && !current.value.equals(item)) {
+        while (current != null && !current.value.equals(item)) {
             current = current.next;
         }
         if (current == null) {
             return false;
         }
-        if(current == last) {
+        if (current == last) {
             deleteLast();
             return true;
         }
