@@ -1,5 +1,6 @@
 package less2;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 
@@ -8,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         long startTime;
         Random random = new Random();
-        int size = 300_000;
+        int size = 10_000;
         MyArrayList<Integer> mar = new MyArrayList<>();
         mar.add(1);
         mar.add(4);
@@ -36,11 +37,14 @@ public class Main {
         startTime = System.currentTimeMillis();
         fillList(random, mySortedArrayList, size);
         System.out.println("Time filling mySortedArrayList=" + (System.currentTimeMillis() - startTime));
-
         startTime = System.currentTimeMillis();
+        System.out.println(mySortedArrayList.recBinaryFind(4000)+" recb = "+ (System.currentTimeMillis() - startTime));
+
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
-        fillList(random, myArrayList, size);
-        System.out.println("Time filling myArrayList=" + (System.currentTimeMillis() - startTime));
+        fillList(random, myArrayList, 1000000);
+        startTime = System.currentTimeMillis();
+        myArrayList.quickSort();
+        System.out.println("Time quickSort myArrayList=" + (System.currentTimeMillis() - startTime));
 
         System.out.println("---binaryFind---");
         startTime = System.currentTimeMillis();
