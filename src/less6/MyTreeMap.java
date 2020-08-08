@@ -11,11 +11,13 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
         Node left;
         Node right;
         int size;
+        int hight;
 
         public Node(Key key, Value value) {
             this.key = key;
             this.value = value;
             this.size = 1;
+            this.hight = 0;
         }
     }
 
@@ -28,6 +30,15 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
     private int size(Node node) {
         if (node == null) return 0;
         return node.size;
+    }
+
+    public int hight() {
+        return hight(root);
+    }
+
+    private int hight(Node node) {
+        if (node == null) return 0;
+        return node.hight;
     }
 
     private boolean isKeyNotNull(Key key) {
@@ -93,12 +104,26 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
         }
 //        Расчет уровня узла
         node.size = size(node.left) + size(node.right) + 1;
+        node.hight = Math.max(hight(node.left), hight(node.right)) + 1;
         return node;
     }
 
     public void delete(Key key) {
         isKeyNotNull(key);
         root = delete(root, key);
+    }
+
+    public boolean isBalansed() {
+        if (root == null) return true;
+        return isBalansed(root);
+    }
+
+    private boolean isBalansed(Node node) {
+        if (node == null) return true;
+        if (Math.abs(hight(node.left)- hight(node.right)) > 1) return false;
+        isBalansed(node.left);
+        isBalansed(node.right);
+        return true;
     }
 
     private Node delete(Node node, Key key) {
@@ -121,6 +146,7 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
             node.left = temp.left;
         }
         node.size = size(node.left) + size(node.right) + 1;
+        node.hight = Math.max(hight(node.left), hight(node.right)) + 1;
         return node;
 
     }
@@ -133,7 +159,8 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
     }
 
     private Node deleteMin(Node node) {
-        if (node.left == null) return node.right; // если нашли min то просто возвращаем правое дерево минимального значения
+        if (node.left == null)
+            return node.right; // если нашли min то просто возвращаем правое дерево минимального значения
         node.left = deleteMin(node.left);
         node.size = size(node.left) + size(node.right) + 1;
         return node;
@@ -164,6 +191,6 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
 
     private String toString(Node node) {
         if (node == null) return "";
-        return toString(node.left) + " " + node.key + "=" + node.value + " size=" + node.size + " " + toString(node.right);
+        return toString(node.left) + " " + node.key + "=" + node.value + " size=" + node.size +" hight=" + node.hight + " " + toString(node.right);
     }
 }
