@@ -31,10 +31,10 @@ public class Main6 {
         }
         infoMap(maps);
 
-        int range = 100;
+        int range = 10000;
         List<MyTreeMap> myTreeMapList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            System.out.println("----------------" + (i + 1) + "--------------");
+        for (int i = 0; i < 20000; i++) {
+//            System.out.println("----------------" + (i + 1) + "--------------");
             myTreeMapList.add(getMyMap(range));
         }
         int a = percentBalanse();
@@ -54,7 +54,7 @@ public class Main6 {
             mapInt.put(r, r);
         }
         countBalanse(mapInt);
-        infoMap(mapInt);
+//        infoMap(mapInt);
         return mapInt;
     }
 

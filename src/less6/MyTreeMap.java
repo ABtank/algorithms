@@ -114,12 +114,12 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
     }
 
     public boolean isBalansed() {
-        if (root == null) return true;
         return isBalansed(root);
     }
 
     private boolean isBalansed(Node node) {
         if (node == null) return true;
+        if (node.left == null && node.right ==null) return true;
         if (Math.abs(hight(node.left)- hight(node.right)) > 1) return false;
         isBalansed(node.left);
         isBalansed(node.right);
@@ -163,6 +163,7 @@ public class MyTreeMap<Key extends Comparable<Key>, Value> {
             return node.right; // если нашли min то просто возвращаем правое дерево минимального значения
         node.left = deleteMin(node.left);
         node.size = size(node.left) + size(node.right) + 1;
+        node.hight = Math.max(hight(node.left), hight(node.right)) + 1;
         return node;
     }
 
