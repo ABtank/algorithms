@@ -78,17 +78,16 @@ public class ChainingHashMap<Key, Value> {
         return null;
     }
 
-    public void delete(Key key) {
+    public Value delete(Key key) {
         checkKeyNotNull(key);
-        int i = hash(key);
-        for (Node node : st[i]){
-            if (key.equals(node.key)){
-                node.value = null;
-                st[i].pop();
-                return;
-            }
+        Value temp = get(key);
+        if (temp == null) {
+            return null;
         }
+        int i = hash(key);
+        st[i].removeIf(node -> node.key.equals(key));
         size--;
+        return temp;
     }
 
     @Override
